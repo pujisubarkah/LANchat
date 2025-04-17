@@ -33,8 +33,12 @@ export const myProvider = isTestEnvironment
         'title-model': google("models/gemini-2.0-flash"),
         'artifact-model': google("models/gemini-2.0-flash"),
       },
+      
       imageModels: {
-        'small-model': google("gemini-2.0-flash-exp-image-generation"),
+        'small-model': {
+          ...google("gemini-2.0-flash-exp-image-generation"),
+          maxImagesPerCall: 4 // ← WAJIB tambahkan ini
+        }
         //xai.image('grok-2-image')
       },
     });
